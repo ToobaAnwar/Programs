@@ -1,0 +1,40 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function Queue(){
+        var arr = [];                           // private
+        this.index = 0;                          // public
+        this.lcount = 0;                           
+        this.enQueue = function(items){              // public
+            arr[this.index++] = items;
+        };
+        this.deQueue = function(){                 // public
+            var arr1 = arr[this.lcount];  
+            delete arr[this.lcount];   
+            this.lcount++ ;                   
+            return arr1;
+        };
+        var isEmpty = function(){              // private member
+            return arr.length == 0;
+        };
+    }
+    var que = new Queue();
+    que.enQueue(1);
+    que.enQueue(2);
+    que.enQueue(3);
+    que.enQueue(4);
+    console.log(que.deQueue());  //1
+    console.log(que.deQueue());  //2
+    console.log(que.deQueue());  //3
+
+
+</script>
+</html>
