@@ -1,0 +1,59 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id ="dbg"></div>
+    <div id ="ebg"></div>
+</body>
+<script>
+let dict2 = {a : "c",b : "g",c : "j",d : "k",e : "i",f : "g",g : "w",h : "y",i : "q",j : "r",k : "l",l : "d",
+        m : "e",n : "z",o : "p",p : "d",q : "s",r : "b",s : "n",t : "o",u : "m",v : "t",w : "x",x : "u",y : "f",
+        z : "v"};     
+    String.prototype.encode = function(){
+    encodeStr = "";
+    for(var j = 0; j< this.length; j++){
+    for(var key in dict2){
+        if(key === this[j])
+          encodeStr += dict2[key];
+          }
+        }
+        return encodeStr;  
+        };
+        
+    String.prototype.decode = function(){
+    let decodeStr = "";
+    for(var j = 0; j< this.length; j++){
+    for(var key in dict2){
+         if(key === this[j])
+          decodeStr += key; 
+          }
+        }
+        return decodeStr; 
+        };
+
+var str = "komal"
+var str1 = str.encode();
+console.log(str1);       //lpecd
+var str2 = str.decode();
+console.log(str2);       // komal
+
+var str = "tooba"
+var str1 = str.encode();
+console.log(str1);       //oppgc
+var str2 = str.decode();
+console.log(str2);       // tooba
+
+var str = "hafsa"
+var str1 = str.encode();
+console.log(str1);       //ycgnc
+var str2 = str.decode();
+console.log(str2);       // hafsa
+
+
+
+</script>
+</html>
