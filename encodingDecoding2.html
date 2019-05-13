@@ -1,0 +1,34 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <div id ="dbg"></div>
+        <div id ="ebg"></div>
+</body>
+<script>
+    var encodeDecode = {
+        enDecode : function (str, k){
+            var enc = "";
+            var s = "";
+            s = str.toString();
+            for(var i = 0; i < str.length; i++){
+                var a = str.charCodeAt(i);
+                var b = a ^ k;
+                enc = enc + String.fromCharCode(b);
+            }
+            return enc;
+        }
+    };
+    var aa = prompt("Enter any string");
+    var c = encodeDecode.enDecode(aa , "123");
+    console.log(c);
+    var d = encodeDecode.enDecode(c, "123");
+    console.log(d);
+    document.getElementById('dbg').innerHTML ='<h1>' + JSON.stringify(c) + '</h1>';
+    document.getElementById('ebg').innerHTML ='<h1>' + JSON.stringify(d) + '</h1>';
+</script>
+</html>
